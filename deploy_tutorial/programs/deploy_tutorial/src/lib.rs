@@ -8,6 +8,8 @@ pub mod deploy_tutorial {
 
     pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
         msg!("Greetings from: {:?}", ctx.program_id);
+        msg!("Hello, Solana!");                                 // 2nd deployment at same program id
+        msg!("Hello again, Solana!!");                          // 3rd deployment at same program id
         Ok(())
     }
 }
