@@ -1,4 +1,5 @@
 use anchor_lang::prelude::*;
+mod calculate;
 
 declare_id!("4yEtV8g1oNJEEY3Vw2qbzQ1UpAP4AqCpTBsWRahFmQUx");
 
@@ -39,6 +40,12 @@ pub mod tryrust {
 
         msg!(&format!("The identity is :: name : {}, age : {}", &name, id_age));
 
+        Ok(())
+    }
+
+    pub fn add_two_numbers(_ctx: Context<Initialize>, a: u64, b: u64) -> Result<()> {
+        let result = calculate::add(a, b);
+        msg!("The result is {}", result);
         Ok(())
     }
 }

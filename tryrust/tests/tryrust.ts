@@ -28,4 +28,11 @@ describe('tryrust', () => {
     const tx = await program.methods.tryingHashmap('Alex', 24).rpc();
     console.log('Your transaction signature', tx);
   });
+
+  it('tests the addition', async () => {
+    const tx = await program.methods
+      .addTwoNumbers(new anchor.BN(10), new anchor.BN(20))
+      .rpc();
+    console.log('Your transaction signature', tx);
+  });
 });
