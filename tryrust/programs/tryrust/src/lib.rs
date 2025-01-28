@@ -28,7 +28,7 @@ pub mod tryrust {
         Ok(())
     }
 
-    pub fn trying_hasmap(_ctx: Context<Initialize>, name: String, age: u8) -> Result<()> {
+    pub fn trying_hashmap(_ctx: Context<Initialize>, name: String, age: u8) -> Result<()> {
         use std::collections::HashMap;
 
         let mut id_hashmap = HashMap::new();

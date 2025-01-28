@@ -25,7 +25,7 @@ describe('tryrust', () => {
   });
 
   it('tests hashmap', async () => {
-    const tx = await program.methods.tryingHasmap('Alex', 24).rpc();
+    const tx = await program.methods.tryingHashmap('Alex', 24).rpc();
     console.log('Your transaction signature', tx);
   });
 });
