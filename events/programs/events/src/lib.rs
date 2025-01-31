@@ -10,7 +10,18 @@ pub mod events {
         msg!("Greetings from: {:?}", ctx.program_id);
         Ok(())
     }
+
+    pub fn this_emits_events(_ctx:Context<Initialize>, a: u32, b: String) -> Result<()> {
+        emit!(MyEvent {name: b, age: a});
+        Ok(())
+    }
 }
 
 #[derive(Accounts)]
 pub struct Initialize {}
+
+#[event]
+pub struct MyEvent {
+    pub name: String,
+    pub age: u32
+}
