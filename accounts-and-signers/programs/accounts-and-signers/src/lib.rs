@@ -10,7 +10,15 @@ pub mod accounts_and_signers {
         msg!("Greetings from: {:?}", ctx.program_id);
         Ok(())
     }
+
+    pub fn call_from_signer(ctx:Context<Initialize>) -> Result<()> {
+        let signer = &ctx.accounts.signer;
+        msg!("Namaste from {:?}", signer);
+        Ok(())
+    }
 }
 
 #[derive(Accounts)]
-pub struct Initialize {}
+pub struct Initialize<'info> {
+    pub signer: Signer<'info>
+}
