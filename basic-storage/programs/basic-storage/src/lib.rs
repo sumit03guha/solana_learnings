@@ -14,7 +14,21 @@ pub mod basic_storage {
 }
 
 #[derive(Accounts)]
-pub struct Initialize<> {}
+pub struct Initialize<'info> {
+    #[account(mut)]
+    pub signer: Signer<'info>,
 
+    #[account(init,
+              payer = signer,
+              space = size_of::<Storage>() + 8,
+              seeds = [],
+              bump)]
+    pub storage: Account<'info, Storage>,
 
+    pub system_program: Program<'info, System>
+}
 
+#[account]
+pub struct Storage {
+    x: u64
+}
